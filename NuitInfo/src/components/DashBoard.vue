@@ -33,6 +33,8 @@
          
          
           <!-- /CONTENT/ -->
+          
+          <Clock></Clock>
 
 
         </v-layout>
@@ -46,11 +48,10 @@
 
 <script>
 
-import Test from './Test'
-import Counter from './Counter'
+import Clock from './Clock'
 export default {
   name: 'DashBoard',
-  components: { Test,Counter },
+  components: { Clock },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
