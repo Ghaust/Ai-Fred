@@ -18,9 +18,11 @@ var express = require('express')
         host = server.address().address
         port = server.address().port
       
-        console.log("\nNotAlone listening at http://%s:%s\n", host, port)
+        console.log("\nXplorer listening at http://%s:%s\n", host, port)
       
       })
 
-//var explorerFunc = require('./functions/explorerFunc.js')
+var explorerFunc = require('./functions/explorerFunc.js')
+
+explorerFunc.addElementIntoExplorer(70, 85, 35, "1.10298282", "1.3838920")
 
