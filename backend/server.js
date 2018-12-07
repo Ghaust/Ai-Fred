@@ -45,8 +45,6 @@ setInterval(function (){
       } else {
         body_temperature = data.body_temperature
       }
-      body_temperature = 40
-      heartbeat = 60
       console.log("HTTP PUT Request : Add ")
       sql_req = "INSERT INTO Explorer (heartbeat, weight, body_temperature, latitude, longitude) VALUES ('" + heartbeat + "','" 
       +  data.weight + "','" + body_temperature +  "','" + data.longitude + "','"
