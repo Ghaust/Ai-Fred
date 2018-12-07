@@ -38,6 +38,8 @@
           <Clock></Clock>
           <Weather></Weather>
 
+          <Vitals></Vitals>  
+
 
         </v-layout>
       </v-container>
@@ -53,9 +55,10 @@
 
 import Clock from './Clock'
 import Weather from './Weather'
+import Vitals from './Vitals'
 export default {
   name: 'DashBoard',
-  components: { Clock, Weather },
+  components: { Clock, Weather, Vitals },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
