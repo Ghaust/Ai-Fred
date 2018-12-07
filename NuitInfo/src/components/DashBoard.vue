@@ -1,4 +1,5 @@
 <template>
+<v-app :dark="dark">
   <div class="hello">
 
        <v-navigation-drawer
@@ -17,8 +18,8 @@
 
 
        <v-list dense>
-
-         <!-- MenuList -->
+         
+         <v-switch :label="`Theme ${darkToString()}`" v-model="dark"></v-switch>
 
       </v-list>
 
@@ -45,6 +46,7 @@
 
 
   </div>
+    </v-app>
 </template>
 
 <script>
@@ -57,14 +59,21 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      drawer:false
+      drawer:false,
+      dark:true
+    }
+  },
+  methods:{
+    darkToString:function(){
+      if(this.dark){ return "sombre"}
+      else{return "lumineux"}
     }
   }
 }
 
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 
 <style scoped>
 h1, h2 {
