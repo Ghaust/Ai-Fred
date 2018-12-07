@@ -1,4 +1,5 @@
 <template>
+<v-app :dark="dark">
   <div class="hello">
 
        <v-navigation-drawer
@@ -10,21 +11,20 @@
 
 
       <v-list dense>
-        <v-list-tile >
 
-        </v-list-tile>
       </v-list>
 
 
        <v-list dense>
 
-         <!-- MenuList -->
-
+        <v-avatar tile size="200px" > <img src="../assets/logo.png" alt=""> </v-avatar>
+        <v-switch :label="`Theme ${darkToString()}`" v-model="dark"></v-switch>
       </v-list>
 
     </v-navigation-drawer>
     <v-toolbar app fixed clipped-left>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+
     </v-toolbar>
 
     <v-content >
@@ -32,10 +32,28 @@
         <v-layout align-center justify-center >
 
 
-          <!-- /CONTENT/ -->
+          <!-- /CONTENT/ -->  
 
-          <Clock></Clock>
-          <Weather></Weather>
+          <div class="clock">
+            <Clock></Clock>
+          </div>
+
+          <div class="weather">
+            <Weather></Weather>
+          </div>
+
+          <div class="vitals">
+            <Vitals></Vitals>
+          </div>
+        
+
+          <div class="materials">
+            <Materials></Materials>
+          </div>
+
+          <div class="todo">
+              <Todo></Todo>
+          </div>
 
 
         </v-layout>
@@ -45,26 +63,39 @@
 
 
   </div>
+    </v-app>
 </template>
 
 <script>
 
 import Clock from './Clock'
 import Weather from './Weather'
+import Materials from './Materials'
+import Vitals from './Vitals'
+import Todo from './Todo'
+
 export default {
   name: 'DashBoard',
-  components: { Clock, Weather },
+  components: { Clock, Weather, Vitals, Materials, Todo },
+
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      drawer:false
+      drawer:false,
+      dark:true
+    }
+  },
+  methods:{
+    darkToString:function(){
+      if(this.dark){ return "sombre"}
+      else{return "lumineux"}
     }
   }
 }
 
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 
 <style scoped>
 h1, h2 {
@@ -81,4 +112,35 @@ li {
 a {
   color: #42b983;
 }
+
+.hello{
+  position:relative;
+}
+.weather{
+  position:absolute;
+  top: 0px;
+right:0px
+}
+
+.clock{
+  position:absolute;
+  top:500px;
+  right:0px
+}
+.vitals{
+  position:absolute;
+  top:55%;
+  left: 27%;
+}
+.materials{
+  position:absolute;
+  top:55%;
+  right:15%;
+}
+.todo{
+  position:absolute;
+  top:0px;
+  left:40px
+}
+
 </style>
