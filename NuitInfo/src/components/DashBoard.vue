@@ -32,13 +32,28 @@
         <v-layout align-center justify-center >
 
 
-          <!-- /CONTENT/ -->
+          <!-- /CONTENT/ -->  
 
-          <Clock></Clock>
-          <Weather></Weather>
-          <Materials></Materials>
+          <div class="clock">
+            <Clock></Clock>
+          </div>
 
-          <Vitals></Vitals>
+          <div class="weather">
+            <Weather></Weather>
+          </div>
+
+          <div class="vitals">
+            <Vitals></Vitals>
+          </div>
+        
+
+          <div class="materials">
+            <Materials></Materials>
+          </div>
+
+          <div class="todo">
+              <Todo></Todo>
+          </div>
 
 
         </v-layout>
@@ -57,9 +72,11 @@ import Clock from './Clock'
 import Weather from './Weather'
 import Materials from './Materials'
 import Vitals from './Vitals'
+import Todo from './Todo'
+
 export default {
   name: 'DashBoard',
-  components: { Clock, Weather, Vitals, Materials },
+  components: { Clock, Weather, Vitals, Materials, Todo },
 
   data () {
     return {
@@ -95,4 +112,35 @@ li {
 a {
   color: #42b983;
 }
+
+.hello{
+  position:relative;
+}
+.weather{
+  position:absolute;
+  top: 0px;
+right:0px
+}
+
+.clock{
+  position:absolute;
+  top:500px;
+  right:0px
+}
+.vitals{
+  position:absolute;
+  top:55%;
+  left: 27%;
+}
+.materials{
+  position:absolute;
+  top:55%;
+  right:15%;
+}
+.todo{
+  position:absolute;
+  top:0px;
+  left:40px
+}
+
 </style>

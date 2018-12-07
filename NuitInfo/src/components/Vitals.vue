@@ -91,7 +91,7 @@ export default {
         var values = res.data[0]
 
         //fetch//
-        this.bpm = -values.heartbeat
+        this.bpm = values.heartbeat
         this.weight = values.weight
         this.temperature = values.body_temperature
 
