@@ -19,6 +19,12 @@ var express = require('express')
       
       })
 
+      
+      app.use(function(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*")
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+        next()
+      })
 
 setInterval(function (){
  
@@ -111,4 +117,15 @@ app.get('/Equipment/getTechnicalInfos', function (req, resultat){
    })
          
 
-       
+app.get('/Material/alertBattery', function(req, resultat){
+  console.log("HTTP GET : Get Alert Battery")
+  sql_req = "SELECT name from Material where battery<40;"
+  con.query(sql_req, function(err, res){
+    if(err) throw err
+    console.log(res)
+  })
+})
+
+app.get('/Material/statusBattery', function(err, req){
+
+})
