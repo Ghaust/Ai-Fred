@@ -34,17 +34,19 @@ setInterval(function (){
     res.forEach(function(data) {
       randheart = globalFunc.getRandomInt(-20, 20);
       randtemp = globalFunc.getRandomInt(-5, 5);
-      if((data.heartbeat >= 50+(randheart)) || (data.heartbeat+(randheart) <= 200 )){
+      if((data.heartbeat+(randheart) >= 50) || (data.heartbeat+(randheart) <= 200 )){
         heartbeat = data.heartbeat + randheart
       } else {
         heartbeat = data.heartbeat
       }
 
-      if((data.body_temperature >= 37+randtemp) || (data.body_temperature <= 50+randtemp)) {
+      if((data.body_temperature+(randtemp) >= 37) || (data.body_temperature+(randtemp) <= 50)) {
            body_temperature = data.body_temperature + randtemp
       } else {
         body_temperature = data.body_temperature
       }
+      body_temperature = 40
+      heartbeat = 60
       console.log("HTTP PUT Request : Add ")
       sql_req = "INSERT INTO Explorer (heartbeat, weight, body_temperature, latitude, longitude) VALUES ('" + heartbeat + "','" 
       +  data.weight + "','" + body_temperature +  "','" + data.longitude + "','"
