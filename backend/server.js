@@ -32,10 +32,13 @@ setInterval(function (){
   con.query(req, function(err, res){
     if(err) throw err
     res.forEach(function(data) {
-      randheart = globalFunc.getRandomInt(-20, 20);
-      randtemp = globalFunc.getRandomInt(-5, 5);
+      randheart = globalFunc.getRandomInt(-3, 3);
+      randtemp = globalFunc.getRandomInt(-2, 2);
+      console.log("randtemp " + randtemp)
+      console.log("randheart " + randheart)
       if((data.heartbeat+(randheart) >= 50) || (data.heartbeat+(randheart) <= 200 )){
-        heartbeat = data.heartbeat + randheart
+       console.log("curr heart " + data.heartbeat)  
+      heartbeat = data.heartbeat + randheart
       } else {
         heartbeat = data.heartbeat
       }
@@ -45,9 +48,10 @@ setInterval(function (){
       } else {
         body_temperature = data.body_temperature
       }
+      //heartbeat = 100
+      //body_temperature = 40
       console.log("HTTP PUT Request : Add ")
-      sql_req = "INSERT INTO Explorer (heartbeat, weight, body_temperature, latitude, longitude) VALUES ('" + heartbeat + "','" 
-      +  data.weight + "','" + body_temperature +  "','" + data.longitude + "','"
+      sql_req = "INSERT INTO Explorer (heartbeat, weight, body_temperature, latitude, longitude) VALUES ('" + heartbeat + "','" +  data.weight + "','" + body_temperature +  "','" + data.longitude + "','"
       + data.latitude + "');" 
       this.con.query(sql_req, function(err, res) {
       if (err) throw err
