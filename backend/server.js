@@ -119,13 +119,36 @@ app.get('/Equipment/getTechnicalInfos', function (req, resultat){
 
 app.get('/Material/alertBattery', function(req, resultat){
   console.log("HTTP GET : Get Alert Battery")
-  sql_req = "SELECT name from Material where battery<40;"
+  sql_req = "SELECT name, battery from Material where battery<40;"
   con.query(sql_req, function(err, res){
     if(err) throw err
-    console.log(res)
+    resultat.send(res)
   })
 })
 
-app.get('/Material/statusBattery', function(err, req){
+app.get('/Material/statusBattery', function(err, resultat){
+  console.log("HTTP GET : Get Status Battery All Devices")
+  sql_req = "SELECT name, battery from Material"
+  con.query(sql_req, function(err, res){
+    if(err) throw err
+    resultat.send(res)
+  })
+})
 
+app.get('/Stock/alertInsufficientStock', function(err, resultat){
+  console.log("HTTP GET : Get Insufficient Stock")
+  sql_req = "SELECT name, quantity from Stock where quantity<20"
+  con.query(sql_req, function(err, res){
+      if(err) throw err
+      resultat.send(res)
+  })
+})
+
+app.get('/Equipment/DamagedEquipment', function(err, resultat){
+  console.log("HTTP GET : Get Equipment Status")
+  sql_req = "SELECT name, taken, status from Equipment where status='ko'"
+  con.query(sql_req, function(err, res){
+    if(err) throw err
+    resultat.send(res)
+  })
 })
