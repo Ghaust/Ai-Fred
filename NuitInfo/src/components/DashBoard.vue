@@ -19,13 +19,14 @@
 
        <v-list dense>
          
-         <v-switch :label="`Theme ${darkToString()}`" v-model="dark"></v-switch>
-
+        <v-avatar tile="true" size="200px" > <img src="../assets/logo.png" alt=""> </v-avatar>
+        <v-switch :label="`Theme ${darkToString()}`" v-model="dark"></v-switch>
       </v-list>
 
     </v-navigation-drawer>
     <v-toolbar app fixed clipped-left>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      
     </v-toolbar>
 
     <v-content >
