@@ -14,7 +14,7 @@ export default {
     return {
       count: 0,
     }
-  }, 
+  },
   methods: {
     increm: function(){
       this.count++

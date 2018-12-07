@@ -1,38 +1,41 @@
 <template>
   <div class="hello">
-   
+
        <v-navigation-drawer
       clipped
       fixed
       v-model="drawer"
       app
     >
-       
+
 
       <v-list dense>
         <v-list-tile >
-        
+
         </v-list-tile>
       </v-list>
-      
-      
+
+
        <v-list dense>
-       
+
          <!-- MenuList -->
-        
+
       </v-list>
 
     </v-navigation-drawer>
     <v-toolbar app fixed clipped-left>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
     </v-toolbar>
-    
+
     <v-content >
       <v-container >
         <v-layout align-center justify-center >
-         
-         
+
+
           <!-- /CONTENT/ -->
+
+          <Clock></Clock>
+          <Weather></Weather>
 
 
         </v-layout>
@@ -40,17 +43,17 @@
     </v-content>
 
 
-    
+
   </div>
 </template>
 
 <script>
 
-import Test from './Test'
-import Counter from './Counter'
+import Clock from './Clock'
+import Weather from './Weather'
 export default {
   name: 'DashBoard',
-  components: { Test,Counter },
+  components: { Clock, Weather },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
@@ -58,6 +61,7 @@ export default {
     }
   }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
