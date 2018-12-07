@@ -11,12 +11,12 @@
 
 
       <v-list dense>
-       
+
       </v-list>
 
 
        <v-list dense>
-         
+
         <v-avatar tile size="200px" > <img src="../assets/logo.png" alt=""> </v-avatar>
         <v-switch :label="`Theme ${darkToString()}`" v-model="dark"></v-switch>
       </v-list>
@@ -24,7 +24,7 @@
     </v-navigation-drawer>
     <v-toolbar app fixed clipped-left>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      
+
     </v-toolbar>
 
     <v-content >
@@ -36,8 +36,9 @@
 
           <Clock></Clock>
           <Weather></Weather>
+          <Materials></Materials>
 
-          <Vitals></Vitals>  
+          <Vitals></Vitals>
 
 
         </v-layout>
@@ -54,10 +55,12 @@
 
 import Clock from './Clock'
 import Weather from './Weather'
+import Materials from './Materials'
 import Vitals from './Vitals'
 export default {
   name: 'DashBoard',
-  components: { Clock, Weather, Vitals },
+  components: { Clock, Weather, Vitals, Materials },
+
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
