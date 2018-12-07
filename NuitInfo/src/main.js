@@ -9,7 +9,7 @@ import 'vuetify/dist/vuetify.min.css'
 
 Vue.config.productionTip = false
 Vue.use(Vuetify)
-
+window.axios = require('axios');
 
 /* eslint-disable no-new */
 new Vue({

@@ -23,13 +23,13 @@ export default {
   methods: {
     updateClock: function(){
       var d = new Date();
-      var datestring = 
-        ("0" + d.getDate()).slice(-2) 
-        + "/" + ("0"+(d.getMonth()+1)).slice(-2) 
-        + "/" + d.getFullYear() 
+      var datestring =
+        ("0" + d.getDate()).slice(-2)
+        + "/" + ("0"+(d.getMonth()+1)).slice(-2)
+        + "/" + d.getFullYear()
       this.date = datestring;
-      var timestring = 
-        ("0" + d.getHours()).slice(-2) 
+      var timestring =
+        ("0" + d.getHours()).slice(-2)
         + ":" + ("0" + d.getMinutes()).slice(-2)
         + ":" + ("0" + d.getSeconds()).slice(-2);
       this.time = timestring;
@@ -40,11 +40,11 @@ export default {
     this.updateClock();
     this.interval = setInterval(function () {
       this.updateClock();
-    }.bind(this), 1000);         
+    }.bind(this), 1000);
   },
   beforeDestroy: function(){
    clearInterval(this.interval);
-  }      
+  }
 }
 </script>
 
@@ -61,10 +61,10 @@ p{
   letter-spacing: 0.1em;
   font-size: 14px;
 }
-.time{  
+.time{
   letter-spacing: 0.05em;
   font-size: 34px;
- 
+
 }
 
 </style>
