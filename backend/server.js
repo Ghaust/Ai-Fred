@@ -34,11 +34,9 @@ setInterval(function (){
     res.forEach(function(data) {
       randheart = globalFunc.getRandomInt(-3, 3);
       randtemp = globalFunc.getRandomInt(-2, 2);
-      console.log("randtemp " + randtemp)
-      console.log("randheart " + randheart)
+
       if((data.heartbeat+(randheart) >= 50) || (data.heartbeat+(randheart) <= 200 )){
-       console.log("curr heart " + data.heartbeat)  
-      heartbeat = data.heartbeat + randheart
+        heartbeat = data.heartbeat + randheart
       } else {
         heartbeat = data.heartbeat
       }
@@ -61,6 +59,38 @@ setInterval(function (){
 
 })
 },1000);
+
+setInterval(function (){
+
+    
+  req = "SELECT * from Material";
+    con.query(req, function(err, res){
+      if(err) throw err
+      
+      console.log(res);
+      
+      res.forEach(function(data) {
+        console.log(data.id)
+        console.log(data.status)
+        console.log("HTTP PUT Request : Add ")
+        status="OK"
+        if(data.status=="OK" ){
+          status="NOK"
+        } else {
+          status="OK"
+        }
+        con.query("UPDATE Material SET status ='" + status +  "' WHERE id = " + data.id , function(err, res) {
+        if (err) throw err
+        console.log(err);  
+        console.log("New element updated.")
+        })
+      });
+  
+  })
+
+  
+  
+},100000);
 
 
 
