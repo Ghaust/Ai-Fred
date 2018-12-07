@@ -139,7 +139,6 @@ app.get('/Material/statusBattery', function(err, resultat){
   })
 })
 
-<<<<<<< HEAD
 app.get('/Stock/alertInsufficientStock', function(err, resultat){
   console.log("HTTP GET : Get Insufficient Stock")
   sql_req = "SELECT name, quantity from Stock where quantity<20"
@@ -157,6 +156,3 @@ app.get('/Equipment/DamagedEquipment', function(err, resultat){
     resultat.send(res)
   })
 })
-=======
-})
->>>>>>> cf86fcc29e3599043d86cbf269c7bfd0744554fe
