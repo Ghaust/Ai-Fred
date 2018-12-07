@@ -11,15 +11,13 @@
 
 
       <v-list dense>
-        <v-list-tile >
-
-        </v-list-tile>
+       
       </v-list>
 
 
        <v-list dense>
          
-        <v-avatar tile="true" size="200px" > <img src="../assets/logo.png" alt=""> </v-avatar>
+        <v-avatar tile size="200px" > <img src="../assets/logo.png" alt=""> </v-avatar>
         <v-switch :label="`Theme ${darkToString()}`" v-model="dark"></v-switch>
       </v-list>
 
