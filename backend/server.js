@@ -32,22 +32,26 @@ setInterval(function (){
   con.query(req, function(err, res){
     if(err) throw err
     res.forEach(function(data) {
-      randheart = globalFunc.getRandomInt(-20, 20);
-      randtemp = globalFunc.getRandomInt(-5, 5);
-      if((data.heartbeat >= 50+(randheart)) || (data.heartbeat+(randheart) <= 200 )){
-        heartbeat = data.heartbeat + randheart
+      randheart = globalFunc.getRandomInt(-3, 3);
+      randtemp = globalFunc.getRandomInt(-2, 2);
+      console.log("randtemp " + randtemp)
+      console.log("randheart " + randheart)
+      if((data.heartbeat+(randheart) >= 50) || (data.heartbeat+(randheart) <= 200 )){
+       console.log("curr heart " + data.heartbeat)  
+      heartbeat = data.heartbeat + randheart
       } else {
         heartbeat = data.heartbeat
       }
 
-      if((data.body_temperature >= 37+randtemp) || (data.body_temperature <= 50+randtemp)) {
+      if((data.body_temperature+(randtemp) >= 37) || (data.body_temperature+(randtemp) <= 50)) {
            body_temperature = data.body_temperature + randtemp
       } else {
         body_temperature = data.body_temperature
       }
+      //heartbeat = 100
+      //body_temperature = 40
       console.log("HTTP PUT Request : Add ")
-      sql_req = "INSERT INTO Explorer (heartbeat, weight, body_temperature, latitude, longitude) VALUES ('" + heartbeat + "','" 
-      +  data.weight + "','" + body_temperature +  "','" + data.longitude + "','"
+      sql_req = "INSERT INTO Explorer (heartbeat, weight, body_temperature, latitude, longitude) VALUES ('" + heartbeat + "','" +  data.weight + "','" + body_temperature +  "','" + data.longitude + "','"
       + data.latitude + "');" 
       this.con.query(sql_req, function(err, res) {
       if (err) throw err
@@ -135,6 +139,7 @@ app.get('/Material/statusBattery', function(err, resultat){
   })
 })
 
+<<<<<<< HEAD
 app.get('/Stock/alertInsufficientStock', function(err, resultat){
   console.log("HTTP GET : Get Insufficient Stock")
   sql_req = "SELECT name, quantity from Stock where quantity<20"
@@ -152,3 +157,6 @@ app.get('/Equipment/DamagedEquipment', function(err, resultat){
     resultat.send(res)
   })
 })
+=======
+})
+>>>>>>> cf86fcc29e3599043d86cbf269c7bfd0744554fe
